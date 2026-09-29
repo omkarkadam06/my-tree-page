@@ -4,22 +4,41 @@
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>My Tree Preview</title>
-    <!-- Tailwind CSS (V4) -->
+    <!-- Tailwind CSS (V4 styling) -->
     <script src="https://jsdelivr.net"></script>
     <!-- React & ReactDOM -->
-    <script src="https://unpkg.com/react@18/umd/react.development.js"></script>
-    <script src="https://unpkg.com/react-dom@18/umd/react-dom.development.js"></script>
-    <!-- Lucide Icons CDN -->
     <script src="https://unpkg.com"></script>
     <script src="https://unpkg.com"></script>
-    <!-- Babel Standalone compiler -->
-    <script src="https://unpkg.com/@babel/standalone/babel.min.js"></script>
+    <!-- Lucide Icons Bundle -->
+    <script src="https://unpkg.com"></script>
+    <!-- Babel Runtime Compiler -->
+    <script src="https://unpkg.com"></script>
 </head>
 <body class="bg-gray-50">
     <div id="root"></div>
 
-    <!-- Links your JSX file -->
-    <script type="text/babel" src="MyTree.jsx"></script>
+    <!-- PASTE YOUR REACT CODE INSIDE THIS TAG -->
+    <script type="text/babel">
+        // 1. Destructure the Lucide icons you need from the global "lucide" object:
+        const { X, Eye, ChevronDown, ChevronRight } = lucide;
+
+        // 2. PASTE THE ENTIRE UI COMPONENT CODE FROM YOUR MyTree.jsx FILE BELOW:
+        function MyTree() {
+            return (
+                <div class="p-8 max-w-md mx-auto bg-white rounded-xl shadow-md space-y-4">
+                    <div class="flex items-center space-x-2 text-green-600">
+                        <Eye size={24} />
+                        <h1 class="text-xl font-bold">My Static Tree</h1>
+                        <X size={20} class="text-gray-400 ml-auto cursor-pointer" />
+                    </div>
+                    <p class="text-gray-500">Your tree structure UI components go here!</p>
+                </div>
+            );
+        }
+
+        // 3. Keep this mount script at the very bottom so it renders to the screen:
+        const root = ReactDOM.createRoot(document.getElementById('root'));
+        root.render(<MyTree />);
+    </script>
 </body>
 </html>
-
