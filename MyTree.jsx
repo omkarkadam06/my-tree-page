@@ -2649,3 +2649,9 @@ export default function App() {
 }
 
 
+
+// Replace 'MyTree' with the exact name of your main component if named differently
+const root = ReactDOM.createRoot(document.getElementById('root'));
+root.render(<MyTree />);
+
+
