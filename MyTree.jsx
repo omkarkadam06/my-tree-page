@@ -1,6 +1,7 @@
 import React, { useState, useEffect, useMemo, useCallback } from 'react';
-import {
-  Sparkles,
+
+// Destructure whichever icons you need directly from the global window object
+const {  Sparkles,
   Award,
   TrendingUp,
   Leaf,
@@ -30,8 +31,7 @@ import {
   Unlock,
   Star,
   Heart,
-  Layers
-} from 'lucide-react';
+  Layers } = lucideReact; 
 
 const TREE_SPECIES = {
   mango: {
