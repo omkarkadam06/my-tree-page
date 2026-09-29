@@ -3,43 +3,121 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>My Tree Preview</title>
-    <!-- Tailwind CSS (V4) Engine -->
+    <title>Static Tree Component Preview</title>
+    <!-- Tailwind CSS Engine for Styling (Loads fast) -->
     <script src="https://unpkg.com"></script>
-    <!-- React and ReactDOM Core Engines -->
-    <script src="https://unpkg.com"></script>
-    <script src="https://unpkg.com"></script>
-    <!-- Lucide Icons Bundle Engine -->
-    <script src="https://unpkg.com"></script>
-    <!-- Babel Runtime Compiler for in-browser JSX loading -->
-    <script src="https://unpkg.com"></script>
-</head>
-<body class="bg-gray-50">
-    <div id="root"></div>
-
-    <script type="text/babel">
-        // 1. Map Lucide icons safely from the global window object
-        const { X, Eye, ChevronDown, ChevronRight } = lucide;
-
-        // 2. PASTE YOUR ENTIRE COMPONENT CODE HERE 
-        // ⚠️ REMOVE ANY "import" STATEMENTS FROM THE TOP
-        function MyTree() {
-            return (
-                <div className="p-8 max-w-md mx-auto mt-10 bg-white rounded-xl shadow-md space-y-4">
-                    <div className="flex items-center space-x-2 text-green-600">
-                        <Eye size={24} />
-                        <h1 className="text-xl font-bold">My Static Tree</h1>
-                        <X size={20} className="text-gray-400 ml-auto cursor-pointer" />
-                    </div>
-                    <p className="text-gray-500">Your tree structure UI components go here!</p>
-                </div>
-            );
+    <style>
+        /* Fallback icon fonts in case network blocks Lucide svg */
+        .arrow {
+            display: inline-block;
+            transition: transform 0.2s;
+            width: 1em;
+            height: 1em;
+            text-align: center;
+            line-height: 1em;
         }
+        details[open] > summary .arrow {
+            transform: rotate(90deg);
+        }
+    </style>
+</head>
+<body class="bg-slate-900 text-slate-100 min-h-screen p-6 md:p-12 flex justify-center items-start">
 
-        // 3. Mount the component cleanly to the page
-        // ⚠️ MAKE SURE TO REMOVE "export default MyTree;" FROM THE BOTTOM OF YOUR CODE
-        const root = ReactDOM.createRoot(document.getElementById('root'));
-        root.render(<MyTree />);
-    </script>
+    <!-- Container Card -->
+    <div class="w-full max-w-md bg-slate-800 rounded-2xl shadow-2xl p-6 border border-slate-700 mt-8">
+        
+        <!-- Header -->
+        <div class="flex items-center justify-between pb-4 mb-6 border-b border-slate-700">
+            <div class="flex items-center space-x-3">
+                <span class="text-2xl">🌳</span>
+                <div>
+                    <h1 class="text-xl font-bold tracking-wide">MyTree Structure</h1>
+                    <p class="text-xs text-slate-400">Static UI Preview</p>
+                </div>
+            </div>
+            <button onclick="alert('Closing preview Container')" class="text-slate-400 hover:text-white p-1 rounded-lg hover:bg-slate-700 transition">
+                ✕
+            </button>
+        </div>
+
+        <!-- Interactive Tree Structure (HTML5 Native Components) -->
+        <div class="space-y-3 text-sm select-none">
+            
+            <!-- Root Node 1 -->
+            <details class="group" open>
+                <summary class="flex items-center space-x-2 p-2 hover:bg-slate-700/50 rounded-lg cursor-pointer list-none">
+                    <span class="arrow text-slate-400 text-xs">▶</span>
+                    <span class="text-base">📁</span>
+                    <span class="font-medium text-blue-400">src</span>
+                </summary>
+                
+                <div class="pl-6 mt-1 space-y-1 border-l border-slate-700 ml-4">
+                    <!-- Child Node -->
+                    <details class="group" open>
+                        <summary class="flex items-center space-x-2 p-1.5 hover:bg-slate-700/50 rounded-lg cursor-pointer list-none">
+                            <span class="arrow text-slate-400 text-xs">▶</span>
+                            <span>📁</span>
+                            <span class="text-emerald-400">components</span>
+                        </summary>
+                        <div class="pl-6 mt-1 space-y-1 border-l border-slate-700 ml-3">
+                            <div class="flex items-center space-x-2 p-1 hover:bg-slate-700/50 rounded-md">
+                                <span class="text-xs ml-3 text-slate-500">▪</span>
+                                <span>📄</span>
+                                <span class="text-slate-300">MyTree.jsx</span>
+                            </div>
+                            <div class="flex items-center space-x-2 p-1 hover:bg-slate-700/50 rounded-md">
+                                <span class="text-xs ml-3 text-slate-500">▪</span>
+                                <span>📄</span>
+                                <span class="text-slate-300">Sidebar.jsx</span>
+                            </div>
+                        </div>
+                    </details>
+
+                    <!-- Another Child -->
+                    <div class="flex items-center space-x-2 p-1.5 hover:bg-slate-700/50 rounded-lg">
+                        <span class="text-xs ml-3 text-slate-500">▪</span>
+                        <span>📄</span>
+                        <span class="text-slate-300">App.jsx</span>
+                    </div>
+                    <div class="flex items-center space-x-2 p-1.5 hover:bg-slate-700/50 rounded-lg">
+                        <span class="text-xs ml-3 text-slate-500">▪</span>
+                        <span>📄</span>
+                        <span class="text-slate-300">main.jsx</span>
+                    </div>
+                </div>
+            </details>
+
+            <!-- Root Node 2 -->
+            <details class="group">
+                <summary class="flex items-center space-x-2 p-2 hover:bg-slate-700/50 rounded-lg cursor-pointer list-none">
+                    <span class="arrow text-slate-400 text-xs">▶</span>
+                    <span class="text-base">📁</span>
+                    <span class="font-medium text-amber-400">public</span>
+                </summary>
+                <div class="pl-6 mt-1 space-y-1 border-l border-slate-700 ml-4">
+                    <div class="flex items-center space-x-2 p-1.5 hover:bg-slate-700/50 rounded-lg">
+                        <span class="text-xs ml-3 text-slate-500">▪</span>
+                        <span>🖼️</span>
+                        <span class="text-slate-300">favicon.ico</span>
+                    </div>
+                </div>
+            </details>
+
+            <!-- Root Node 3 (Single File) -->
+            <div class="flex items-center space-x-2 p-2 hover:bg-slate-700/50 rounded-lg">
+                <span class="text-xs ml-3 text-slate-500">▪</span>
+                <span>⚙️</span>
+                <span class="text-slate-300">package.json</span>
+            </div>
+
+        </div>
+
+        <!-- Footer Meta -->
+        <div class="mt-6 pt-4 border-t border-slate-700 text-right">
+            <span class="text-[10px] text-slate-500 font-mono">Status: Connected Live</span>
+        </div>
+
+    </div>
+
 </body>
 </html>
